@@ -21,26 +21,26 @@ const food = {
 const tree = document.querySelector('#tree');
 
 function createTree(element, data) {
-  const myTree = document.createElement('ul');
+  element = document.createElement('ul');
 
   for (const key in data) {
     const firstList = document.createElement('li');
 
     firstList.textContent = key;
 
-    myTree.append(firstList);
-    document.body.append(myTree);
+    element.append(firstList);
+    document.body.append(element);
 
     const testLength = Object.keys(data[key]).length;
 
     if (testLength !== 0) {
-      const next = createTree(null, data[key]);
+      const next = createTree(firstList, data[key]);
 
       firstList.append(next);
     }
   }
 
-  return myTree;
+  return element;
 }
 
 createTree(tree, food);
