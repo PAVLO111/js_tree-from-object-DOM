@@ -30,7 +30,8 @@ function createTree(element, data) {
     // document.body.append(firstList);
 
     const testLength = Object.keys(data[key]).length;
-    console.log(testLength)
+
+    console.log(testLength);
 
     if (testLength > 0) {
       const ul = document.createElement('ul');
@@ -43,4 +44,3 @@ function createTree(element, data) {
 
   return element;
 }
-
