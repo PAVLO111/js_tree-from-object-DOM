@@ -18,6 +18,11 @@ const food = {
   },
 };
 
+const rootTree = document.createElement('ul');
+
+rootTree.id = 'tree';
+document.body.append(rootTree);
+
 const tree = document.querySelector('#tree');
 
 function createTree(element, data) {
@@ -27,20 +32,17 @@ function createTree(element, data) {
     firstList.textContent = key;
 
     element.append(firstList);
-    // document.body.append(firstList);
 
     const testLength = Object.keys(data[key]).length;
-
-    console.log(testLength);
 
     if (testLength > 0) {
       const ul = document.createElement('ul');
 
       firstList.append(ul);
 
-      createTree(null, data[key]);
+      createTree(ul, data[key]);
     }
   }
-
-  return element;
 }
+
+createTree(tree, food);
